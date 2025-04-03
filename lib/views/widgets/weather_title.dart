@@ -9,6 +9,7 @@ class WeatherTitle extends StatelessWidget {
   final String windSpeed;
   final String feelsLike;
   final String cityName;
+  final String date;
   const WeatherTitle({
     super.key,
     required this.mainIcon,
@@ -17,7 +18,8 @@ class WeatherTitle extends StatelessWidget {
     required this.description,
     required this.windSpeed,
     required this.feelsLike,
-    required this.cityName
+    required this.cityName,
+    required this.date,
   });
 
   @override
@@ -36,7 +38,7 @@ class WeatherTitle extends StatelessWidget {
               ),
             ),
             Text(
-              "Uzbekistan",
+              "country",
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w300,
@@ -64,6 +66,7 @@ class WeatherTitle extends StatelessWidget {
               Image.network(
                 "https://openweathermap.org/img/wn/$mainIcon@2x.png",
               ),
+              Text(date),
               Text(main, style: TextStyle(color: Colors.white, fontSize: 25)),
               Text(
                 description,

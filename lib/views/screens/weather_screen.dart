@@ -94,6 +94,7 @@ class _WeatherViewState extends State<WeatherView> {
                         .toDouble()
                         .toStringAsFixed(1),
                     cityName: city,
+                    date: weatherOne.date,
                   );
                 },
               ),

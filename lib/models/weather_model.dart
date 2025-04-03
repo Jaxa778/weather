@@ -6,6 +6,7 @@ class WeatherModel {
   final String icon; //olindi
   final double speed; //olindi
   final double feelsLike; //olindi
+  final String date;
 
   WeatherModel({
     required this.dt,
@@ -15,6 +16,7 @@ class WeatherModel {
     required this.icon,
     required this.speed,
     required this.feelsLike,
+    required this.date,
   });
 
   factory WeatherModel.fromMap(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class WeatherModel {
       icon: json["weather"][0]["icon"],
       speed: (json["wind"]["speed"] as num).toDouble(),
       feelsLike: (json["main"]["feels_like"] as num).toDouble(),
+      date: json['dt_txt'].split(" ")[0],
     );
   }
 }

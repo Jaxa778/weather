@@ -10,14 +10,17 @@ class WeatherController {
       "https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=4fbcaea02da3f8d21a4ac27cfc5dca4c",
     );
     final response = await http.get(url);
-
+    Map<String, WeatherModel> days = {};
     final getedWeather = jsonDecode(response.body);
 
-    List<WeatherModel> weatherList = [];
-    
-    for (var date in getedWeather["list"]) {
-      weatherList.add(WeatherModel.fromMap(date));
+    List<dynamic> weatherList = getedWeather['list'];
+
+    for (var i in weatherList) {
+      String date = i['dt_txt'].split(" ")[0];
+      if (!days.containsKey(date)) {
+        days[date] = WeatherModel.fromMap(i);
+      }
     }
-    return weatherList;
+    return days.values.toList();
   }
 }
