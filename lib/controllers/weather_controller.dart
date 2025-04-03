@@ -14,6 +14,7 @@ class WeatherController {
     final getedWeather = jsonDecode(response.body);
 
     List<WeatherModel> weatherList = [];
+    
     for (var date in getedWeather["list"]) {
       weatherList.add(WeatherModel.fromMap(date));
     }

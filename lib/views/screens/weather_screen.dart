@@ -33,6 +33,7 @@ class _WeatherViewState extends State<WeatherView> {
         .then((weatherData) {
           setState(() {
             weather = weatherData;
+            city = cityName;
             isLoading = false;
           });
         })
